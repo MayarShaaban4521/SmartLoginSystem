@@ -5,9 +5,9 @@ var signupPassword = document.getElementById("signupPassword");
 var signinEmail = document.getElementById("signinEmail");
 var signinPassword = document.getElementById("signinPassword");
 var usernameElm = document.getElementById("username");
-// to get base url (localhost)
 
-// to say welcome in home page
+
+
 var username = localStorage.getItem("sessionUsername");
 if (username && usernameElm) {
   document.getElementById("username").innerHTML = "Welcome " + username;
@@ -20,7 +20,7 @@ if (localStorage.getItem("users") == null) {
   signUpArray = JSON.parse(localStorage.getItem("users"));
 }
 
-//for check inputs is empty or not
+
 function isEmpty() {
   if (
     signupName.value == "" ||
@@ -33,7 +33,7 @@ function isEmpty() {
   }
 }
 
-// for check email is exist
+
 function isEmailExist() {
   for (var i = 0; i < signUpArray.length; i++) {
     if (signUpArray[i].email.toLowerCase() == signupEmail.value.toLowerCase()) {
@@ -58,7 +58,7 @@ function signUp() {
       '<span class="text-danger m-3">Invalid email</span>';
     return false;
   }
-  // to store all value as object
+
   var signUp = {
     name: signupName.value,
     email: signupEmail.value,
@@ -82,8 +82,6 @@ function signUp() {
   }
 }
 
-// ============= for login================
-//for check inputs is empty or not
 function isLoginEmpty() {
   if (signinPassword.value == "" || signinEmail.value == "") {
     return false;
@@ -120,7 +118,7 @@ function login() {
   }
 }
 
-// for logout
+
 function logout() {
   localStorage.removeItem("sessionUsername");
 }
